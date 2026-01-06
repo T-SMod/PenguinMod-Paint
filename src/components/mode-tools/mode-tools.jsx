@@ -76,6 +76,7 @@ import bitRectIcon from '../bit-rect-mode/rectangle.svg';
 import bitOvalOutlinedIcon from '../bit-oval-mode/oval-outlined.svg';
 import bitRectOutlinedIcon from '../bit-rect-mode/rectangle-outlined.svg';
 import dashArrayIcon from './icons/dash-array.svg';
+import text2PathIcon from '!../../tw-recolor/build!./icons/text-to-shapes.svg';
 
 const LiveInput = LiveInputHOC(Input);
 const ModeToolsComponent = props => {
@@ -249,6 +250,11 @@ const ModeToolsComponent = props => {
             defaultMessage: 'Center align',
             description: 'Label for the button that sets text alignment to the center',
             id: 'dash.paint.modeTools.centerAlign'
+        },
+        text2Path: {
+            defaultMessage: 'Text to Shapes',
+            description: 'Label for the button that converts text to shapes',
+            id: 'dash.paint.modeTools.text2Path'
         },
         more: {
             defaultMessage: 'More',
@@ -732,7 +738,7 @@ const ModeToolsComponent = props => {
                     />
                 </InputGroup>
             );
-            const movementOptions = (
+            const otherOptions = (
                 <InputGroup className={classNames(styles.modDashedBorder, styles.modLabeledIconHeight)}>
                     <LabeledIconButton
                         hideLabel={hideLabel(props.intl.locale)}
@@ -776,8 +782,8 @@ const ModeToolsComponent = props => {
                     <MediaQuery minWidth={layout.fullSizeEditorMinWidthExtraToolsCollapsed}>
                         {/* Flip Options */}
                         {flipOptions}
-                        {/* Movement Options */}
-                        {movementOptions}
+                        {/* Other Options */}
+                        {otherOptions}
                         {/* Reshaping Methods */}
                         {(props.mode === Modes.SELECT) ? (
                             <MediaQuery minWidth={layout.fullSizeEditorMinWidthExtraTools}>
@@ -817,7 +823,7 @@ const ModeToolsComponent = props => {
                                         rtl={props.rtl}
                                     >
                                         {flipOptions}
-                                        {movementOptions}
+                                        {otherOptions}
                                         {reshapingMethods}
                                     </InputGroup>
                                 }
@@ -860,6 +866,14 @@ const ModeToolsComponent = props => {
                             onClick={props.onTextAlignRight}
                         />
                     </InputGroup>
+                    {(props.mode === Modes.TEXT) ? (<InputGroup className={classNames(styles.modDashedBorder, styles.modLabeledIconHeight)}>
+                        <LabeledIconButton
+                            hideLabel={hideLabel(props.intl.locale)}
+                            imgSrc={text2PathIcon}
+                            title={props.intl.formatMessage(messages.text2Path)}
+                            onClick={props.onText2Path}
+                        />
+                    </InputGroup>) : null}
                 </div>
             );
         case Modes.BIT_RECT:
@@ -963,6 +977,7 @@ ModeToolsComponent.propTypes = {
     onPasteFromClipboard: PropTypes.func.isRequired,
     onPointPoints: PropTypes.func.isRequired,
     onUpdateImage: PropTypes.func.isRequired,
+    onText2Path: PropTypes.func.isRequired,
 
     onMergeShape: PropTypes.func.isRequired,
     onMaskShape: PropTypes.func.isRequired,
