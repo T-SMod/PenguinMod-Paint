@@ -35,6 +35,11 @@ class FontDropdown extends React.Component {
             'handleChangeFontObelixPro',
             'handleChangeFontJetBrainsMono',
             'handleChangeFontRubik',
+            'handleChangeFontScratchSavers',
+            'handleChangeFontLibreBaskerville',
+            'handleChangeFontOpenSans',
+            'handleChangeFontYujiBoku',
+            'handleChangeFontShadowsIntoLight',
             'handleChangeFontScratch',
             'handleChangeFontBranches',
             'handleChangeFontArchivo',
@@ -252,6 +257,11 @@ class FontDropdown extends React.Component {
             this.props.changeFont(Fonts.TECHNOLOGICAL);
         }
     }
+    handleChangeFontShadowsIntoLight() {
+        if (this.dropDown.isOpen()) {
+            this.props.changeFont(Fonts.SHADOWSINTOLIGHT);
+        }
+    }
     handleChangeFontArcade() {
         if (this.dropDown.isOpen()) {
             this.props.changeFont(Fonts.ARCADE);
@@ -300,6 +310,26 @@ class FontDropdown extends React.Component {
     handleChangeFontRubik() {
         if (this.dropDown.isOpen()) {
             this.props.changeFont(Fonts.RUBIK);
+        }
+    }
+    handleChangeFontScratchSavers() {
+        if (this.dropDown.isOpen()) {
+            this.props.changeFont(Fonts.SCRATCHSAVERS);
+        }
+    }
+    handleChangeFontLibreBaskerville() {
+        if (this.dropDown.isOpen()) {
+            this.props.changeFont(Fonts.LIBREBASKERVILLE);
+        }
+    }
+    handleChangeFontOpenSans() {
+        if (this.dropDown.isOpen()) {
+            this.props.changeFont(Fonts.OPENSANS);
+        }
+    }
+    handleChangeFontYujiBoku() {
+        if (this.dropDown.isOpen()) {
+            this.props.changeFont(Fonts.YUJIBOKU);
         }
     }
     handleChangeFontScratch() {
@@ -438,6 +468,11 @@ class FontDropdown extends React.Component {
                 onHoverObelixPro={this.handleChangeFontObelixPro}
                 onHoverJetBrainsMono={this.handleChangeFontJetBrainsMono}
                 onHoverRubik={this.handleChangeFontRubik}
+                onHoverScratchSavers={this.handleChangeFontScratchSavers}
+                onHoverLibreBaskerville={this.handleChangeFontLibreBaskerville}
+                onHoverOpenSans={this.handleChangeFontOpenSans}
+                onHoverYujiBoku={this.handleChangeFontYujiBoku}
+                onHoverShadowsIntoLight={this.handleChangeFontShadowsIntoLight}
                 onHoverScratch={this.handleChangeFontScratch}
                 onHoverBranches={this.handleChangeFontBranches}
                 onHoverSansSerif={this.handleChangeFontSansSerif}
